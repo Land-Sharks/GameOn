@@ -24,9 +24,10 @@ fs
     // const model = sequelize['import'](path.join(__dirname, file));
     const model = sequelize.import(path.join(__dirname, file));
     const modelName = model.name.charAt(0).toUpperCase() + model.name.slice(1);
+    // console.log(model)
     db[modelName] = model;
   });
-
+  
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
