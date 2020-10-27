@@ -1,0 +1,23 @@
+.signup-form {
+    display: grid;
+    width: 30vw;
+    margin: 0 auto;
+    justify-content: center;
+    grid-template-columns: 10em 10em;
+    grid-template-rows: repeat(6, 4em);
+    border: 1px solid;
+    height: 50vh;
+}
+
+.signup-form input, .signup-form label {
+    margin: 1em;
+}
+
+.signup-form :first-child {
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+.signup-form :nth-last-child(2), .signup-form :last-child {
+    align-self: end;
+}

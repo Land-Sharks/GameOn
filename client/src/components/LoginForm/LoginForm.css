@@ -1,0 +1,23 @@
+.login-form {
+    display: grid;
+    width: 30vw;
+    margin: 0 auto;
+    justify-content: center;
+    grid-template-columns: 10em 10em;
+    grid-template-rows: repeat(3, 4em);
+    border: 1px solid;
+    height: 50vh;
+}
+
+.login-form input, .login-form label {
+    margin: 1em;
+}
+
+.login-form :first-child {
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+.login-form :last-child, .login-form :nth-last-child(2) {
+    align-self: end;
+}
