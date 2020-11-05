@@ -1,6 +1,7 @@
 import React, { useState,  useEffect } from 'react';
-import LoginForm from '../components/LoginForm/LoginForm';
-import SignUpForm from '../components/SignUpForm/SignUpForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import SignUpForm from '../../components/SignUpForm/SignUpForm';
+import "./WelcomePage.css";
 
 const WelcomePage = (props) => {
 
@@ -13,7 +14,7 @@ const WelcomePage = (props) => {
     return (
         <div>
             <h1>GameOn</h1>
-            <h2>The New Way to Game</h2>
+            {/* <h2>The New Way to Game</h2> */}
 
             {
                 newUser ? <SignUpForm changeView={changeView}/> 
