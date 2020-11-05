@@ -25,18 +25,17 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
 
-    try {
-        const user = await User.findOne({
-            where: {
-                username: req.body.username,
-                password: req.body.password
-            }
-        });
-        console.log(user);
-        
+    const user = await User.findOne({
+        where: {
+            username: req.body.username,
+            password: req.body.password
+        }
+    });
+    
+    if (user) {
         res.status(200).send(user);
-    } catch {
-        res.status(404).send(user);
+    } else {
+        res.status(404).send("User not found");
     }
 
 });
