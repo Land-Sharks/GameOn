@@ -12,13 +12,16 @@ module.exports = (sequelize, DataTypes) => {
 					len: [5, 20],
 					notEmpty: true,
 				},
+				allowNull: false,
 				unique: true,
 			},
 			firstName: {
 				type: DataTypes.STRING,
+				allowNull: false,
 			},
 			lastName: {
 				type: DataTypes.STRING,
+				allowNull: false,
 			},
 			email: {
 				type: DataTypes.STRING,
@@ -26,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
 					len: [5, 50],
 					notEmpty: true,
 				},
+				allowNull: false,
 				unique: true,
 			},
 			password: {
@@ -34,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
 					len: [5, 20],
 					notEmpty: true,
 				},
+				allowNull: false
 			},
 			about: {
 				type: DataTypes.BLOB,
