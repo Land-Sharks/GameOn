@@ -8,23 +8,36 @@ const SignUpForm = (props) => {
     const [ email, setEmail ] = useState();
     const [ username, setUsername ] = useState();
     const [ password, setPassword ] = useState();
+    const [ loginError, setLoginError ] = useState(false);
 
     const signup = async () => {
         const data = { firstName, lastName, email, username, password };
-        const req = await fetch("/api/users", {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
-        if (req.status == 201) {
-            console.log("Sign Up successful");
-        } else {
-            console.log("Failed to sign up");
 
+        if (!firstName) setLoginError(true);
+        if (!lastName) setLoginError(true);
+        if (!email) setLoginError(true);
+        if (!username) setLoginError(true);
+        if (!password) setLoginError(true);
+        
+        if (!loginError) {
+            const req = await fetch("/api/users", {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            if (req.status == 201) {
+                console.log("Sign Up successful");
+            } else {
+                console.log("Failed to sign up");
+    
+            }
         }
+        setLoginError(false);
+        console.log("SIGN UP ERROR");
+
     }
 
     return (
@@ -33,7 +46,8 @@ const SignUpForm = (props) => {
             <label>First Name: </label>
             <input type="text" 
                 onChange={(e) => setFirstName(e.target.value)} 
-                placeholder="first name"/>
+                placeholder="first name"
+                required/>
             <label>Last Name: </label>
             <input type="text" 
                 onChange={(e) => setLastName(e.target.value)} 
