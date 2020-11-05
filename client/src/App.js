@@ -8,9 +8,9 @@ import {
 } from "react-router-dom";
 
 import "./App.css";
-import UserPage from "./pages/UserPage";
-import HomePage from "./pages/HomePage";
-import WelcomePage from "./pages/WelcomePage";
+import UserPage from "./pages/UserPage/UserPage";
+import HomePage from "./pages/HomePage/HomePage";
+import WelcomePage from "./pages/WelcomePage/WelcomePage";
 
 const App = () => {
 
@@ -23,7 +23,6 @@ const App = () => {
                     {
                         user ? <Route exact path="/" component={() => <HomePage user={user}/>} />
                         : <Route exact path="/" component={() => <WelcomePage setUser={setUser}/>} />
-
                     }
                 </Switch>
             </div>
