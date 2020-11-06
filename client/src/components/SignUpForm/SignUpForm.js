@@ -51,9 +51,11 @@ const SignUpForm = (props) => {
                 onChange={(e) => setPassword(e.target.value)} 
                 placeholder="password"/>
             <input type="button"
+                className="login-button"
                 onClick={props.changeView} 
                 value="Login"/>
             <input type="button" 
+                className="signup-button"
                 onClick={signup} 
                 value="Sign Up"/> 
         </div>
