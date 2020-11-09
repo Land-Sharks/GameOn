@@ -1,24 +1,37 @@
 import React, { useState,  useEffect } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
+import NavBar from '../../components/NavBar/NavBar';
 import "./WelcomePage.css";
 
 const WelcomePage = (props) => {
 
-    const [ newUser, setNewUser ] = useState(true);
+    const [ login, setLogin ] = useState(false);
+    const [ signUp, setSignUp ] = useState(false);
 
-    const changeView = () => {
-        setNewUser(!newUser);
+    const displayLoginForm = () => {
+        setLogin(true);
+        setSignUp(false);
+    }
+
+    const displaySignUpForm = () => {
+        setLogin(false);
+        setSignUp(true);
+    }
+
+    const closeForm = () => {
+        setLogin(false);
+        setSignUp(false);
     }
 
     return (
-        <div>
-            <h1>GameOn</h1>
-            {/* <h2>The New Way to Game</h2> */}
-
+        <div className="welcome-page">
+            <NavBar displayLoginForm={displayLoginForm} 
+                displaySignUpForm={displaySignUpForm} />
             {
-                newUser ? <SignUpForm changeView={changeView}/> 
-                    : <LoginForm changeView={changeView} setUser={props.setUser}/>
+                login ? <LoginForm closeForm={closeForm} setAuthenticated={props.setAuthenticated}/>
+                    : signUp ? <SignUpForm closeForm={closeForm} />
+                    : <div />
             }
         </div>
     );

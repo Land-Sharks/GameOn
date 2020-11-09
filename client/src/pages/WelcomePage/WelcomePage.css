@@ -1,3 +1,9 @@
 h1 {
     text-align: center;
 }
+
+.welcome-page {
+    display: block;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+}
