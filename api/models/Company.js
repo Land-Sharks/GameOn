@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     Company.associate = (models) => {
 
         // Creates a one-to-many relationship between Comapny and Game(s) 
-        models.Company.hasMany(models.Game, { through: "GameCompany", timestamps: false });
+        // models.Company.hasMany(models.Game, { through: "GameCompany", timestamps: false });
 
     }
 

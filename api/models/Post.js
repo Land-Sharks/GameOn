@@ -21,10 +21,10 @@ module.exports = (sequelize, DataTypes) => {
 
 	Post.associate = (models) => {
 		// Creates a many-to-many relation between Genre and Game
-		models.Post.belongsToOne(models.User, {
-			through: "Users",
-			timestamps: false,
-		});
+		// models.Post.belongsToOne(models.User, {
+		// 	through: "Users",
+		// 	timestamps: false,
+		// });
 	};
 
 	return Post;
