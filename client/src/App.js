@@ -11,19 +11,23 @@ import "./App.css";
 import UserPage from "./pages/UserPage/UserPage";
 import HomePage from "./pages/HomePage/HomePage";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
+import GamePage from "./pages/GamePage/GamePage";
+
+import auth from './services/auth';
 
 const App = () => {
 
-    const [ user, setUser ] = useState();
+    const [ authenticated, setAuthenticated ] = useState(auth.isAuthenticated);
 
     return (
         <Router>
             <div>
                 <Switch>
                     {
-                        user ? <Route exact path="/" component={() => <HomePage user={user}/>} />
-                        : <Route exact path="/" component={() => <WelcomePage setUser={setUser}/>} />
+                        auth.isAuthenticated ? <Route exact path="/" component={() => <HomePage />} />
+                        : <Route exact path="/" component={() => <WelcomePage setAuthenticated={setAuthenticated}/>} />
                     }
+                    <Route exact path="/games" component={() => <GamePage />}/>
                 </Switch>
             </div>
         </Router>
