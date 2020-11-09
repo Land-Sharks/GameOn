@@ -1,0 +1,23 @@
+nav {
+    display: flex;
+    width: 100vw;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgb(20, 124, 200);
+}
+
+
+nav :first-child {
+    margin-right: auto;
+}
+
+nav > input[type="button"] {
+    margin-right: 1.5em;
+    height: 90%;
+}
+
+nav > input[type="text"] {
+    justify-self: center;
+    margin: 0 auto;
+}
