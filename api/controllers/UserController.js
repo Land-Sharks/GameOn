@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const passport = require('../middlewares/authentication');
 const { User } = db;
 
 router.get('/', async (req, res) => {
@@ -23,21 +24,20 @@ router.post('/', async (req, res) => {
 
 });
 
-router.post('/login', async (req, res) => {
-
-    const user = await User.findOne({
-        where: {
-            username: req.body.username,
-            password: req.body.password
-        }
-    });
-    
-    if (user) {
-        res.status(200).send(user);
-    } else {
-        res.status(404).send("User not found");
+router.post('/login', 
+    passport.authenticate('local'), 
+    (req, res) => {
+        res.json(req.user);
     }
+);
 
+router.post('/logout', (req, res) => {
+    req.logout();
+    res.status(200).json({ messsage: 'Logout successful'});
+});
+
+router.post('/clean', (req, res) => {
+    
 });
 
 module.exports = router;
