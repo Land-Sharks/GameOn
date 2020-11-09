@@ -1,0 +1,18 @@
+.form {
+    text-align: center;
+    position: relative;
+    display: grid;
+    min-width: 350px;
+    width: 30vw;
+    margin: 4em auto;
+    justify-content: center;
+    grid-template-columns: 20em;
+    row-gap: 1em;
+    border: 1px solid;
+    height: 50vh;
+}
+
+
+.close-button {
+    color: white;
+}
