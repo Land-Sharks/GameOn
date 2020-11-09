@@ -6,25 +6,20 @@ module.exports = (sequelize, DataTypes) => {
 
 	Post.init(
 		{
-			postContent: {
-				type: DataTypes.STRING,
-				unique: true,
+			text: {
+				type: DataTypes.STRING
 			},
 		},
 		{
 			sequelize,
-			// Disables the createdAt & updatedAt data that sequelize auto generates
-			timestamps: false,
-			modelName: "genre",
+			modelName: "post",
 		}
 	);
 
 	Post.associate = (models) => {
-		// Creates a many-to-many relation between Genre and Game
-		// models.Post.belongsToOne(models.User, {
-		// 	through: "Users",
-		// 	timestamps: false,
-		// });
+		models.Post.belongsTo(models.User, {
+			through: "UserPosts",
+		});
 	};
 
 	return Post;

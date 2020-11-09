@@ -56,7 +56,17 @@ module.exports = (sequelize, DataTypes) => {
 		}
 	);
 
-	User.associate = (models) => {};
+	User.associate = (models) => {
+
+		models.User.belongsToMany(models.Post, {
+			through: "UserPosts",
+		});
+
+		models.User.belongsToMany(models.Comment, {
+			through: "UserComments",
+		});
+
+	};
 
 	User.beforeSave((user, options) => {
 		if (user.password) {
