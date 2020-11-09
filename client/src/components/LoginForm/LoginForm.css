@@ -1,41 +1,23 @@
 .login-form {
-    display: grid;
-    width: 30vw;
-    margin: 0 auto;
-    justify-content: center;
-    grid-template-columns: 10em 10em;
-    grid-template-rows: 4em 4em 4em 2em 2em;
-    border: 1px solid;
-    height: 50vh;
+    
+    grid-template-rows: 4em repeat(4, 2em);
+
 }
 
-.login-form input, .login-form label {
-    margin: 1em;
-}
-
-.login-form input[type='text'], .login-form input[type='password'] {
-    grid-column: 1 / -1;
-}
-
-.error {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: red;
-}
-
-.forgot-link {
-    text-align: center;
-    grid-column: 1 / -1;
-}
-
-.login-form :first-child {
-    text-align: center;
-    grid-column: 1 / -1;
-}
-
-.login-button, .signup-button {
-    justify-self: center;
+.login-form :last-child {
     align-self: end;
-    width: 9em;
+    margin-bottom: 1em;
+}
 
+.close-button {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.error-text {
+    color: red;
 }

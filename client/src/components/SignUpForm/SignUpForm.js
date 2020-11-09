@@ -1,80 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import './SignUpForm.css';
+import React, { useState, useEffect } from "react";
+import Form from "../Form/Form";
+import "./SignUpForm.css";
 
 const SignUpForm = (props) => {
+	const [firstName, setFirstName] = useState();
+	const [lastName, setLastName] = useState();
+	const [email, setEmail] = useState();
+	const [username, setUsername] = useState();
+	const [password, setPassword] = useState();
 
-    const [ firstName, setFirstName ] = useState();
-    const [ lastName, setLastName ] = useState();
-    const [ email, setEmail ] = useState();
-    const [ username, setUsername ] = useState();
-    const [ password, setPassword ] = useState();
-    const [ loginError, setLoginError ] = useState(false);
 
-    const signup = async () => {
-        const data = { firstName, lastName, email, username, password };
-
-        if (!firstName) setLoginError(true);
-        if (!lastName) setLoginError(true);
-        if (!email) setLoginError(true);
-        if (!username) setLoginError(true);
-        if (!password) setLoginError(true);
-        
-        if (!loginError) {
-            const req = await fetch("/api/users", {
-                method: 'POST',
-                credentials: 'include',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-            if (req.status == 201) {
-                console.log("Sign Up successful");
-            } else {
-                console.log("Failed to sign up");
-    
-            }
-        }
-        setLoginError(false);
-        console.log("SIGN UP ERROR");
-
-    }
-
-    return (
-        <div className="signup-form">
-            <h1>Sign Up</h1>
-            <label>First Name: </label>
-            <input type="text" 
-                onChange={(e) => setFirstName(e.target.value)} 
-                placeholder="first name"
-                required/>
-            <label>Last Name: </label>
-            <input type="text" 
-                onChange={(e) => setLastName(e.target.value)} 
-                placeholder="last name"/>
-            <label>Email: </label>
-            <input type="text" 
-                onChange={(e) => setEmail(e.target.value)} 
-                placeholder="email"/>
-            <label>Username: </label>
-            <input type="text" 
-                onChange={(e) => setUsername(e.target.value)} 
-                placeholder="username"/>
-            <label>Password: </label>
-            <input type="password" 
-                onChange={(e) => setPassword(e.target.value)} 
-                placeholder="password"/>
-            <input type="button"
-                className="login-button"
-                onClick={props.changeView} 
-                value="Login"/>
-            <input type="button" 
-                className="signup-button"
-                onClick={signup} 
-                value="Sign Up"/> 
-        </div>
-    )
-
-}
+	return (
+		<Form
+			formClass="signup-form"
+			title="Sign Up"
+			closeForm={props.closeForm}
+		>
+            <div className="name-fields">
+                <input
+                    type="text"
+                    onClick={(e) => setFirstName(e.target.value)}
+                    placeholder="First Name"
+                />
+                <input
+                    type="text"
+                    onClick={(e) => setLastName(e.target.value)}
+                    placeholder="Last Name"
+                />
+            </div>
+			<input
+				type="text"
+				onClick={(e) => setEmail(e.target.value)}
+				placeholder="Email"
+			/>
+			<input
+				type="text"
+				onClick={(e) => setUsername(e.target.value)}
+				placeholder="Username"
+			/>
+			<input
+				type="password"
+				onClick={(e) => setPassword(e.target.value)}
+				placeholder="Password"
+			/>
+		</Form>
+	);
+};
 
 export default SignUpForm;
