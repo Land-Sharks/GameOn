@@ -13,25 +13,34 @@ import HomePage from "./pages/HomePage/HomePage";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import GamePage from "./pages/GamePage/GamePage";
 
-import auth from './services/auth';
+import auth from "./services/auth";
 
 const App = () => {
+	
+	const [authenticated, setAuthenticated] = useState(auth.isAuthenticated);
 
-    const [ authenticated, setAuthenticated ] = useState(auth.isAuthenticated);
-
-    return (
-        <Router>
-            <div>
-                <Switch>
-                    {
-                        auth.isAuthenticated ? <Route exact path="/" component={() => <HomePage />} />
-                        : <Route exact path="/" component={() => <WelcomePage setAuthenticated={setAuthenticated}/>} />
-                    }
-                    <Route exact path="/games" component={() => <GamePage />}/>
-                </Switch>
-            </div>
-        </Router>
-    );
-}
+	return (
+		<Router>
+			<div>
+				<Switch>
+					{auth.isAuthenticated ? (
+						<Route exact path="/" component={() => <HomePage />} />
+					) : (
+						<Route
+							exact
+							path="/"
+							component={() => (
+								<WelcomePage
+									setAuthenticated={setAuthenticated}
+								/>
+							)}
+						/>
+					)}
+					<Route exact path="/games" component={() => <GamePage />} />
+				</Switch>
+			</div>
+		</Router>
+	);
+};
 
 export default App;
