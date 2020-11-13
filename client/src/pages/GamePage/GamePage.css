@@ -1,6 +1,7 @@
 .games-container {
     display: grid;
-    grid-template-columns: repeat(5, 20%);
+    width: 100%;
+    grid-template-columns: repeat(4, 20vw);
     grid-auto-rows: auto;
     align-items: center;
     justify-content: center;
