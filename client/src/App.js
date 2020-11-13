@@ -19,6 +19,22 @@ const App = () => {
 	
 	const [authenticated, setAuthenticated] = useState(auth.isAuthenticated);
 
+	useEffect(async () => {
+		if(!auth.isAuthenticated) {
+			const response = await fetch('/api/users/check');
+			if (response.ok) {
+				const user = await response.json();
+				// console.log(user);
+				auth.user = user;
+				auth.isAuthenticated = true;
+				setAuthenticated(auth.isAuthenticated);
+				console.log('Logged in')
+			} else {
+				console.log('Not logged in')
+			}
+		}
+	}, []);
+
 	return (
 		<Router>
 			<div>

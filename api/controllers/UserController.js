@@ -63,4 +63,14 @@ router.get('/:username/games', async (req, res) => {
 
 });
 
+router.get('/check', async (req, res) => {
+    if (req.user) {
+        // console.log(req.user)
+        res.status(200).json(req.user)
+    } else {
+        console.log('Not authenticated');
+        res.status(404).json('Not authenticated');
+    } 
+})
+
 module.exports = router;

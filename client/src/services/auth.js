@@ -16,7 +16,6 @@ const auth = {
         this.isAuthenticated = true;
         
         this.user = body;
-
     },
     async signout(cb) {
          const response = await fetch('/api/users/logout', {
