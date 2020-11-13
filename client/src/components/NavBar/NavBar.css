@@ -7,6 +7,16 @@ nav {
     background-color: rgb(20, 124, 200);
 }
 
+nav > a {
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+nav > a:hover {
+    text-decoration: none;
+    color: white;
+}
 
 nav :first-child {
     margin-right: auto;
