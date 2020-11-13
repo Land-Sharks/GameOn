@@ -58,12 +58,19 @@ module.exports = (sequelize, DataTypes) => {
 
 	User.associate = (models) => {
 
+		// Creates an association between one user and all their posts
 		models.User.belongsToMany(models.Post, {
 			through: "UserPosts",
 		});
-
+		
+		// Creates an association between one user and all their comments
 		models.User.belongsToMany(models.Comment, {
 			through: "UserComments",
+		});
+
+		// Creates an assocation between one user and all theirs games they follow
+		models.User.belongsToMany(models.Game, {
+			through: "UserGames",
 		});
 
 	};
