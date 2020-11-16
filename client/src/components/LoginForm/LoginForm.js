@@ -29,11 +29,13 @@ const LoginForm = (props) => {
 			closeForm={props.closeForm}
 			submitForm={login}
 		>
+			
 			<input
 				type="text"
 				onChange={(e) => setUsername(e.target.value)}
 				placeholder="Username"
 			/>
+			
 			<input
 				type="password"
 				onChange={(e) => setPassword(e.target.value)}

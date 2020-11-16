@@ -12,7 +12,9 @@ const Form = (props) => {
 				value="X"
 			/>
 			{props.children}
-			<input type="button" onClick={props.submitForm}  value={props.title} />
+			
+			<input className="submit-button" type="button" onClick={props.submitForm}  value={props.title} />
+			
 		</div>
 	);
 };

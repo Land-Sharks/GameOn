@@ -3,6 +3,13 @@
 	grid-template-rows: 4em repeat(4, 2em);
 }
 
+.signup-form input {
+    background: transparent;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+
 .name-fields {
 	display: inline-block;
 }
@@ -38,3 +45,4 @@
 	align-self: end;
 	margin-bottom: 1em;
 }
+

@@ -4,7 +4,7 @@ nav {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    background-color: rgb(20, 124, 200);
+    background-color: #4FA29C;
 }
 
 nav > a {

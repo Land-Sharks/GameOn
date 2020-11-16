@@ -10,9 +10,42 @@
     row-gap: 1em;
     border: 1px solid;
     height: 50vh;
+    
+
+    /*New Box Styling*/
+
+    width: 400px;
+      background: linear-gradient(#1f3050, #243b5577);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 15px;
+    
 }
 
 
 .close-button {
     color: white;
 }
+
+.submit-button {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px
+}
+
+.submit-button:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 10px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 50px #03e9f4;
+  }
+
