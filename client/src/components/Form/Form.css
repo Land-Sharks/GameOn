@@ -31,7 +31,7 @@
     position: relative;
     display: inline-block;
     padding: 8px 20px;
-    color: #03e9f4;
+    color: #03e8f4c4;
     font-size: 16px;
     text-transform: uppercase;
     overflow: hidden;
@@ -40,12 +40,13 @@
 }
 
 .submit-button:hover {
-    background: #03e9f4;
+    background: #03e8f4c4;
     color: #fff;
+    font-weight: bold;
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 10px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 50px #03e9f4;
+    box-shadow: 0 0 5px #03e8f48a,
+                0 0 10px #03e8f48a,
+                0 0 50px #03e8f48a,
+                0 0 50px #03e8f48a;
   }
 
