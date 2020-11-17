@@ -57,7 +57,6 @@ module.exports = (sequelize, DataTypes) => {
 	);
 
 	User.associate = (models) => {
-
 		models.User.belongsToMany(models.Post, {
 			through: "UserPosts",
 		});

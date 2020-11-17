@@ -6,6 +6,7 @@ const router = express.Router();
 const usersController = require('./UserController.js');
 const gamesController = require('./GameController.js');
 const genresController = require('./GenreController.js');
+const postsController = require('./PostController.js');
 const appConfigController = require('./appConfig.js');
 
 // Mount each controller under a specific route. These
@@ -13,6 +14,7 @@ const appConfigController = require('./appConfig.js');
 router.use('/users', usersController);
 router.use('/games', gamesController);
 router.use('/genres', genresController);
+router.use('/posts', postsController)
 router.use('/application-configuration', appConfigController);
 
 
