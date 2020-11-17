@@ -9,6 +9,13 @@
     margin-bottom: 1em;
 }
 
+.login-form input {
+    background: transparent;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+
 .close-button {
     position: absolute;
     top: 1em;

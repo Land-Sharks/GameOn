@@ -17,9 +17,15 @@ module.exports = (sequelize, DataTypes) => {
 	);
 
 	Post.associate = (models) => {
+		// Creates an association between an user and all their post
 		models.Post.belongsTo(models.User, {
 			through: "UserPosts",
 		});
+
+		// Creaates an association between an post and all its commments
+		models.Post.belongsToMany(models.Comment, {
+			through: "PostComments",
+		})
 	};
 
 	return Post;

@@ -2,16 +2,22 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const passport = require('../middlewares/authentication');
-const { User } = db;
+const { User, Game } = db;
 
+// Returns a list of all users
 router.get('/', async (req, res) => {
 
-    const users = await User.findAll({});
+    const users = await User.findAll({
+        include: {
+            model: Game
+        }
+    });
     // console.log(users);
     res.status(200).json(users);
     
 });
 
+// Creates a new user 
 router.post('/', async (req, res) => {
 
     try {
@@ -24,6 +30,7 @@ router.post('/', async (req, res) => {
 
 });
 
+// Authenticates the user
 router.post('/login', 
     passport.authenticate('local'), 
     (req, res) => {
@@ -31,13 +38,39 @@ router.post('/login',
     }
 );
 
+// Logs the user out 
 router.post('/logout', (req, res) => {
     req.logout();
     res.status(200).json({ messsage: 'Logout successful'});
 });
 
-router.post('/clean', (req, res) => {
-    
+// Returns all the games that a user is following
+router.get('/:username/games', async (req, res) => {
+
+    const username = req.params.username;
+
+    const result = await Game.findAll({
+        include: {
+            model: User,
+            where: {
+                username: username
+            },
+            attributes: []
+        }
+    })
+    console.log(username);
+    res.status(200).json(result);
+
 });
+
+router.get('/check', async (req, res) => {
+    if (req.user) {
+        // console.log(req.user)
+        res.status(200).json(req.user)
+    } else {
+        console.log('Not authenticated');
+        res.status(404).json('Not authenticated');
+    } 
+})
 
 module.exports = router;

@@ -1,0 +1,9 @@
+.games-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 20vw);
+    grid-auto-rows: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}

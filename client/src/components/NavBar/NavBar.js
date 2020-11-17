@@ -13,13 +13,19 @@ const NavBar = (props) => {
         history.go(0);
     }
 
+    const goToGames = () => {
+        history.push("games");
+    }
+
     return <nav>
-       <h1>GameOn</h1>
+       <a href="/">GameOn</a>
         {
             auth.isAuthenticated 
             ? <Fragment>
                     <input type="text" />
                     <input type="button" value="Profile" />
+                    <input type="button" onClick={goToGames} value="Games" />
+                    
                     <input type="button" onClick={logout} value="Logout" />
                 </Fragment>
                 : <Fragment>

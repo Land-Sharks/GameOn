@@ -25,6 +25,12 @@ module.exports = (sequelize, DataTypes) => {
 			through: "GameGenres",
 			timestamps: false,
 		});
+
+		models.Game.belongsToMany(models.User, {
+			through: "UserGames",
+			timestamps: false
+		})
+
 	};
 
 	return Game;

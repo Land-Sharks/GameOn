@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import Form from "../Form/Form";
 import "./SignUpForm.css";
 
@@ -8,13 +9,31 @@ const SignUpForm = (props) => {
 	const [email, setEmail] = useState();
 	const [username, setUsername] = useState();
 	const [password, setPassword] = useState();
+	const [signupSuccessful, setSignUpSuccessful ] = useState();
 
+	const history = useHistory();
+
+	const signup = async () => {
+		const response = await fetch('/api/users', {
+			method: 'POST',
+			body: JSON.stringify({ firstName, lastName, email, username, password}),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+		if(!response.ok) {
+			setSignUpSuccessful(false);
+		} else {
+			setSignUpSuccessful(true);
+		}
+	}
 
 	return (
 		<Form
 			formClass="signup-form"
 			title="Sign Up"
 			closeForm={props.closeForm}
+			submitForm={signup}
 		>
             <div className="name-fields">
                 <input
@@ -43,6 +62,7 @@ const SignUpForm = (props) => {
 				onClick={(e) => setPassword(e.target.value)}
 				placeholder="Password"
 			/>
+			
 		</Form>
 	);
 };
