@@ -38,28 +38,28 @@ const SignUpForm = (props) => {
             <div className="name-fields">
                 <input
                     type="text"
-                    onClick={(e) => setFirstName(e.target.value)}
+                    onChange={(e) => setFirstName(e.target.value)}
                     placeholder="First Name"
                 />
                 <input
                     type="text"
-                    onClick={(e) => setLastName(e.target.value)}
+                    onChange={(e) => setLastName(e.target.value)}
                     placeholder="Last Name"
                 />
             </div>
 			<input
 				type="text"
-				onClick={(e) => setEmail(e.target.value)}
+				onChange={(e) => setEmail(e.target.value)}
 				placeholder="Email"
 			/>
 			<input
 				type="text"
-				onClick={(e) => setUsername(e.target.value)}
+				onChange={(e) => setUsername(e.target.value)}
 				placeholder="Username"
 			/>
 			<input
 				type="password"
-				onClick={(e) => setPassword(e.target.value)}
+				onChange={(e) => setPassword(e.target.value)}
 				placeholder="Password"
 			/>
 			
