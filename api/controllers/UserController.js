@@ -7,11 +7,7 @@ const { User, Game, Post } = db;
 // Returns a list of all users
 router.get('/', async (req, res) => {
 
-    const users = await User.findAll({
-        include: {
-            model: Game
-        }
-    });
+    const users = await User.findAll({});
     // console.log(users);
     res.status(200).json(users);
     
