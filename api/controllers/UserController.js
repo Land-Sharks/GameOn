@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const passport = require('../middlewares/authentication');
-const { User, Game } = db;
+const { User, Game, Post } = db;
 
 // Returns a list of all users
 router.get('/', async (req, res) => {
@@ -59,6 +59,18 @@ router.get('/:username/games', async (req, res) => {
         }
     })
     console.log(username);
+    res.status(200).json(result);
+
+});
+
+router.get('/:username/posts', async (req, res) => {
+
+    const username = req.params.username;
+
+    const result = await Post.findAll({
+        where: { username: username },
+    })
+
     res.status(200).json(result);
 
 });
