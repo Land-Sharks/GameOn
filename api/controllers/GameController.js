@@ -5,23 +5,40 @@ const fetch = require("node-fetch");
 const db = require("../models");
 const { Game, Genre, User } = db;
 
+// Create custom queries
+const createQuery = async (query) => {
+	const obj = {
+		order: [],
+		include: {
+			model: Genre,
+			through: { attributes: ['genreId'] },
+		}
+	}
+
+	let order;
+	if (query.order) {
+		order = [query.order.key, query.order.value];
+	} else {
+		order = ['name', 'ASC'];
+	}
+	obj.order.push(order);
+
+	if (query.genre) {
+		const genre = { name: query.genre }
+		obj['include'][0]['where'] = genre;
+	}
+	console.log(obj);
+	return obj;
+
+}
+
 // Returns a list of all games
 router.get("/", async (req, res) => {
 	const genre = req.query.genre;
-	console.log(req.query);
+	
 	try {
 
-		const obj = {
-			order: [["name", "ASC"]],
-			include: [{
-				model: Genre,
-				through: { attributes: [] },
-			}]
-		}
-
-		if (genre) {
-			obj['include'][0]['where'] = { name: genre }
-		}
+		const obj = await createQuery(req.query);
 
 		const games = await Game.findAll(obj);
 		res.status(200).json(games);
