@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
 	Post.init(
 		{
 			text: {
-				type: DataTypes.STRING
+				type: DataTypes.TEXT
 			},
 		},
 		{
