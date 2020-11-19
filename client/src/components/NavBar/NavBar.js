@@ -18,7 +18,10 @@ const NavBar = (props) => {
     }
 
     return <nav>
+        <div class="head">
+       <img src = "/assets/images/logo.svg" alt=""/>
        <a href="/">GameOn</a>
+       </div>
         {
             auth.isAuthenticated 
             ? <Fragment>
@@ -30,7 +33,6 @@ const NavBar = (props) => {
                 </Fragment>
                 : <Fragment>
                     <input type="button" onClick={props.displayLoginForm} value="Login" />
-                    <input type="button" onClick={props.displaySignUpForm} value="Sign Up" />
                 </Fragment>
         }
     </nav>

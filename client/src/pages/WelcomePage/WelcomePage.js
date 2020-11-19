@@ -33,8 +33,8 @@ const WelcomePage = (props) => {
                     : signUp ? <SignUpForm closeForm={closeForm} />
                     : <div class="welcome-text">
                         <h2>Where will GameOn take you?</h2>
-                        <h3>Explore a world like never before</h3>
-                        <input type="button" onClick={displaySignUpForm} value="Jump In"></input>
+                        <h3>Explore a gaming community like never before</h3>
+                        <input type="button" onClick={displaySignUpForm} value= "Get Started"></input>
                     </div>
             }
         </div>
