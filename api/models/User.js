@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
 					notEmpty: true,
 				},
 				allowNull: false,
+				primaryKey: true,
 				unique: true,
 			},
 			firstName: {
@@ -59,9 +60,7 @@ module.exports = (sequelize, DataTypes) => {
 	User.associate = (models) => {
 
 		// Creates an association between one user and all their posts
-		models.User.hasMany(models.Post, {
-			foreignKey: 'userId',
-		});
+		models.User.hasMany(models.Post, { foreignKey: "username"});
 		
 		// Creates an association between one user and all their comments
 		models.User.belongsToMany(models.Comment, {
