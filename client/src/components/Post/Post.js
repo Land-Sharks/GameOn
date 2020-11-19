@@ -15,17 +15,17 @@ const Post = (props) => {
 			time: "11-7-2020 2:59AM",
 		},
 	]);
-
+	
 	return (
 		<div className="post">
-			<h3 className="poster-name">Derick Fan</h3>
-			<p>This is a post about something I dont really know</p>
-			<p>11-9-2020 2:54AM</p>
+			<h3 className="poster-name">{props.post.username}</h3>
+			<p>{props.post.text}</p>
+			<p>{props.post.updatedAt}</p>
 			<input type="text" placeholder="Comment" />
 			<input type="button" value="Submit" />
-			{comments.map((c) => {
+			{/* {comments.map((c) => {
 				return <Comment name={c.name} body={c.body} time={c.time} />;
-			})}
+			})} */}
 		</div>
 	);
 };
