@@ -7,9 +7,10 @@ const { User, Game, Post } = db;
 router.post("/", async (req, res) => {
 
 
-    fillDatabaseWithGames();
-    fillDatabaseWithUsers();
-    fillDatabaseWithPosts();
+    await fillDatabaseWithGames();
+    await fillDatabaseWithUsers();
+    await fillDatabaseWithPosts();
+    await fillDatabaseWithGameFollows();
 
     res.status(200).json("SUCCESFUL");
     
@@ -32,7 +33,7 @@ const fillDatabaseWithGames = async () => {
 
 } 
 
-const fillDatabaseWithUsers = () => {
+const fillDatabaseWithUsers = async () => {
 
     try {
         const users = [
@@ -116,6 +117,59 @@ const fillDatabaseWithPosts = async () => {
         console.log("DB succesfully filled with posts");
     } catch {
         console.log("Failed to add posts");
+    }
+
+}
+
+const fillDatabaseWithGameFollows = async () => {
+
+    try {
+        const follows = [
+            {
+                username: 'derickfan',
+                gameId: 1,
+            }, {
+                username: 'derickfan',
+                gameId: 2,
+            }, {
+                username: 'derickfan',
+                gameId: 3,
+            }, {
+                username: 'sharwit',
+                gameId: 6,
+            }, {
+                username: 'sharwit',
+                gameId: 7,
+            }, {
+                username: 'sharwit',
+                gameId: 10,
+            }, {
+                username: 'sharwit',
+                gameId: 20,
+            }, {
+                username: 'dmiller88',
+                gameId: 7,
+            }, {
+                username: 'dmiller88',
+                gameId: 15,
+            }, {
+                username: 'dmiller88',
+                gameId: 19,
+            },
+        ];
+
+        follows.forEach(async (content) => {
+            const follow = await fetch('http://localhost:8080/api/games/follow', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(content)
+            });
+        });
+        console.log("DB filled with sample follows");
+    } catch {
+        console.log("Failed to follow games");
     }
 
 }
