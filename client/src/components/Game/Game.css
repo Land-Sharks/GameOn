@@ -1,7 +1,8 @@
 .game-card {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     border: 1px solid;
-    height: 15em;
 }
 
 .game-card > h1{
@@ -15,4 +16,9 @@
 
 .red {
     background-color: pink;
+}
+
+.game-image {
+    width: 276px;
+    height: 368px;
 }
