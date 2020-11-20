@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     try {
         console.log(req.body)
         const user = await User.create(req.body);
-        res.status(201).send(user);
+        res.status(201).send("Sign Up Successful");
     } catch {
         res.status(400).send("Error");
     }
