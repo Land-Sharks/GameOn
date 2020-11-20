@@ -6,7 +6,9 @@ const { Post, User } = db;
 //However, this does not return any of the posts! It always goes to the catch block instead
 router.get("/", async (req, res) => {
     try {
-        const posts = await Post.findAll({});
+        const posts = await Post.findAll({
+            order: [['updatedAt', 'DESC']]
+        });
 		res.status(200).json(posts);
 	} catch {
 		res.status(404).send({message: "no posts found"});
@@ -26,7 +28,7 @@ router.post("/", async (req, res) => {
         })
         const data = await user.addPost(post)
         // console.log(data);
-        res.status(200).json(data);
+        res.status(200).json("Posting Successful");
 	} catch {
 		res.status(400).send({message: "bad request!"}); 
 	}
