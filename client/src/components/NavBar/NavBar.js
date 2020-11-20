@@ -17,6 +17,10 @@ const NavBar = (props) => {
         history.push("games");
     }
 
+    const goToProfile = () => {
+        history.push("profile")
+    }
+
     return <nav>
         <div class="head">
        <img src = "/assets/images/logo.svg" alt=""/>
@@ -26,7 +30,7 @@ const NavBar = (props) => {
             auth.isAuthenticated 
             ? <Fragment>
                     <input type="text" />
-                    <input type="button" value="Profile" />
+                    <input type="button" onClick={goToProfile} value="Profile" />
                     <input type="button" onClick={goToGames} value="Games" />
                     
                     <input type="button" onClick={logout} value="Logout" />
