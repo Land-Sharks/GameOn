@@ -13,7 +13,7 @@ nav {
     background-color: #4FA29C;
 }
 
-img {
+.logo {
     height: 45px;
     display: inline-flex;
     margin-bottom: 5px;
