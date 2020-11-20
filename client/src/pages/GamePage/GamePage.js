@@ -17,7 +17,7 @@ const GamePage = (props) => {
 
     const getGames = async () => {
 
-        const endpoint = auth.user ? `/api/games/${auth.user.username}` : `/api/games`;
+        const endpoint = auth.user ? `/api/games/${auth.user.username}` : `/api/games/`;
         const response = await fetch(endpoint);
         const data = await response.json();
         setGames(data);

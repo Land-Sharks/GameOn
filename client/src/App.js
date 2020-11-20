@@ -53,6 +53,8 @@ const App = () => {
 						/>
 					)}
 					<Route exact path="/games" component={() => <GamePage />} />
+					<Route exact path="/profile" component={() => <UserPage />} />
+					
 				</Switch>
 			</div>
 		</Router>
