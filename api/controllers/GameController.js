@@ -98,13 +98,18 @@ router.delete("/", async (req, res) => {
 	}
 });
 
-router.get("/:game", async (req, res) => {
+router.get("/details/:game", async (req, res) => {
 	try {
 		const game = req.params.game;
+		console.log(game);
 		const result = await Game.findOne({
 			where: { name: game },
 			include: {
-				model: Genre,
+				model: User,
+				attributes: ['username'],
+				through: {
+					attributes: []
+				}
 			},
 		});
 		res.status(200).send(result);
