@@ -7,10 +7,10 @@ const { User, Game, Post } = db;
 router.post("/", async (req, res) => {
 
 
-    // await fillDatabaseWithGames();
-    // await fillDatabaseWithUsers();
-    // await fillDatabaseWithPosts();
-    // await fillDatabaseWithGameFollows();
+    await fillDatabaseWithGames();
+    await fillDatabaseWithUsers();
+    await fillDatabaseWithPosts();
+    await fillDatabaseWithGameFollows();
     await fillDatabaseWithUserFollows();
 
     res.status(200).json("SUCCESFUL");
