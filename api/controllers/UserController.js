@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const passport = require('../middlewares/authentication');
-const { User, Game, Post } = db;
+const { User, Game, Post, UserFollowers } = db;
 
 // Returns a list of all users
 router.get('/', async (req, res) => {
@@ -59,6 +59,7 @@ router.get('/:username/games', async (req, res) => {
 
 });
 
+// Retrieves all of the user's posts
 router.get('/:username/posts', async (req, res) => {
 
     const username = req.params.username;
@@ -68,6 +69,79 @@ router.get('/:username/posts', async (req, res) => {
     })
 
     res.status(200).json(result);
+
+});
+
+// Retrieves all of the user's following
+router.get('/:username/following', async (req, res) => {
+
+    try {
+        const username = req.params.username;
+    
+        const result = await User.findAll({
+            where: { username: username },
+            attributes: [],
+            include: {
+                model: User,
+                as: 'following',
+                attributes: ['username'],
+                through: {
+                    attributes: []
+                }
+            }
+        })
+    
+        res.status(200).json(result[0].following);
+
+    } catch(e) {
+        res.status(404).json(e);
+    }
+});
+
+// Retrieves all the followers the user has
+router.get('/:username/followers', async (req, res) => {
+
+    try {
+        const username = req.params.username;
+
+        const result = await User.findAll({
+            attributes: ['username'],
+            include: {
+                model: User,
+                as: 'following',
+                attributes: [],
+                where: { username: username },
+                through: {
+                    attributes: []
+                }
+            }
+        })
+
+        res.status(200).json(result);
+    } catch(e) {
+        res.status(404).json(e);
+    }
+
+});
+
+// 
+router.post('/follow', async (req, res) => {
+    
+    try {
+        const follower = await User.findOne({
+            where: { username: req.body.follower }
+        })
+
+        const user = await User.findOne({
+            where: { username: req.body.user }
+        })
+
+        const result = await user.addFollowing(follower);
+
+        res.status(200).json(result)
+    } catch (e){
+        res.status(404).json(e);
+    }
 
 });
 
