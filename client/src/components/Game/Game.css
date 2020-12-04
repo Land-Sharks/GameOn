@@ -32,5 +32,8 @@
 
 .not-following {
     border: 5px solid red;
+}
 
+.game-image:hover + .game-overlay {
+    /* opacity: 1; */
 }

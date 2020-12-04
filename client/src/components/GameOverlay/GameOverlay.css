@@ -1,0 +1,11 @@
+.game-overlay {
+    background-color: black;
+    position: absolute;
+    cursor: none;
+    opacity: 0;
+    border: 1px solid white;
+}
+
+.game-image:hover + .game-overlay {
+    opacity: 1;
+}
