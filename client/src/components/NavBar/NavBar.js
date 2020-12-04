@@ -28,7 +28,6 @@ const NavBar = (props) => {
 			</div>
 			{auth.isAuthenticated ? (
 				<Fragment>
-					<input type="text" />
 					<input type="button" onClick={props.toggleForm} value="+"/>
 					<input
 						type="button"
