@@ -1,0 +1,9 @@
+.filter-tool {
+    background-color: black;
+    display: flex;
+    height: 1.5em;
+}
+
+.range {
+    display: flex;
+}

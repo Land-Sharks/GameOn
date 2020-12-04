@@ -47,22 +47,14 @@ const Game = (props) => {
 	return (
         <div className="game-card" 
             >
-
-            {/* {
-                displayOverlay ? 
-                : <div /> 
-            } */}
 			<img
 				className={`game-image ${
                     isFollowing ? "following" : "not-following"
                 }`}
                 onClick={followGame}
-                // onMouseEnter={() => setDisplayOverlay(true)}
-                // onMouseLeave={() => setDisplayOverlay(false)}
 				src={imageUrl}
 			/>
             <GameOverlay name={props.name} genres={props.genres}/>
-			{/* <input className={isFollowing ? 'red' : 'green'} type="button" onClick={followGame} value={isFollowing ? 'unfollow' : 'follow'}/> */}
 		</div>
 	);
 };
