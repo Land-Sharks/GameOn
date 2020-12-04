@@ -11,25 +11,25 @@ const UserPage = (props) => {
     const [ posts, setPosts ] = useState([]);
     useEffect(() => {
         getPosts();
+        getGamesFollowed();
     }, []);
 
     const getPosts = async () => {
-        const response = await fetch('/users/username/posts');
+        const response = await fetch('/api/users/username/posts');
         const data = await response.json();
         setPosts(data);
     }
 
     // Get users' followed games setup
-        const [ games, setGamesFollowed ] = useState([]);
-        useEffect(() => {
-            getGamesFollowed();
-        }, []);
+        const [ games, setGames ] = useState([]);
+        // useEffect(() => {
+        // }, []);
 
         const getGamesFollowed = async () => {
             const response = await fetch(`/api/users/${auth.user.username}/games/`);
             const data = await response.json();
             console.log(data)
-            setGamesFollowed(data);
+            setGames(data);
         }
 
     return (
@@ -38,11 +38,11 @@ const UserPage = (props) => {
 
             <h1>Displaying user page</h1>
             <p>Displaying games followed</p>
-            {/* <div className="user-activity">
+            <div className="user-activity">
                 {posts.map((p) => {
                     return <Post post={p} />;
                 })}
-            </div> */}
+            </div>
 
             <div className="user-games">
                 {

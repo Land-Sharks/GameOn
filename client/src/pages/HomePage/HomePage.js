@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import PostContainer from "../../components/PostContainer/PostContainer";
 import PostForm from "../../components/PostForm/PostForm";
+import UserRecommendation from "../../components/UserRecommendation/UserRecommendation";
 import "./HomePage.css";
 
 const HomePage = (props) => {
@@ -18,6 +19,7 @@ const HomePage = (props) => {
 			{
 				posting ? <PostForm toggleForm={toggleForm}/> : <div />
 			}
+			<UserRecommendation />
 			<PostContainer />
 		</div>
 	);
