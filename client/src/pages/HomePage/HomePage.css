@@ -1,5 +1,8 @@
 .home-page {
-    display: block;
+    display: grid;
+    grid-row: 4;
     height: 100%;
     background-color: #130A08;
+    color: white;
 }
+

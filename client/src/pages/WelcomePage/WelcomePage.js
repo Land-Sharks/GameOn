@@ -36,6 +36,8 @@ const WelcomePage = (props) => {
                         <h3>Explore a gaming community like never before</h3>
                         <input type="button" onClick={displaySignUpForm} value= "Get Started"></input>
                     </div>
+                    
+
             }
         </div>
     );

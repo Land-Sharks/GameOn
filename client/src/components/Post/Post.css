@@ -1,0 +1,11 @@
+.post {
+    display: block;
+    text-align: center;
+    border-style: solid;
+    margin: 2%;
+    background-color: rgba(124, 124, 124, 0.281);
+}
+
+.poster-name {
+    font-weight: bold;
+}

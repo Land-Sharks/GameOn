@@ -1,5 +1,5 @@
 import React, { useState, uesEffect } from "react";
-
+import './Post.css';
 import Comment from "../Comment/Comment";
 
 // Displays:
