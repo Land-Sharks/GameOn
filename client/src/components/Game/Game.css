@@ -26,6 +26,10 @@
     transform: all 0.5s ease;
 }
 
+.game-image:hover {
+    filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.685));
+}
+
 .following {
     border: 5px solid green;
 }
