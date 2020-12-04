@@ -9,6 +9,7 @@
 .game-card > h1{
     text-align: center;
     font-size: 1.8rem;
+    font-weight: bold;
 }
 
 .green {

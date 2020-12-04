@@ -6,6 +6,11 @@
     background-color: rgba(124, 124, 124, 0.281);
 }
 
+.post > input {
+
+
+}
+
 .poster-name {
     font-weight: bold;
 }

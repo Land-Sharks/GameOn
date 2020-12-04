@@ -1,9 +1,23 @@
 .game-overlay {
-    background-color: black;
+    
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
     position: absolute;
     cursor: none;
     opacity: 0;
-    border: 1px solid white;
+    border: 2px solid #5b7188;
+    padding: 2%;
+    
+}
+
+
+.game-overlay > h1 {
+    font-weight: medium;
+    color: aliceblue;
+    text-align: center;
+}
+
+.genre {
 }
 
 .game-image:hover + .game-overlay {
