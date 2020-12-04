@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { useHistory } from "react-router-dom";
 import Form from "../Form/Form";
 import "./SignUpForm.css";
@@ -34,19 +34,20 @@ const SignUpForm = (props) => {
 			title="Sign Up"
 			closeForm={props.closeForm}
 			submitForm={signup}
-		>
-            <div className="name-fields">
-                <input
-                    type="text"
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="First Name"
-                />
-                <input
-                    type="text"
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder="Last Name"
-                />
-            </div>
+			successful={signupSuccessful}
+		>		
+			<div className="name-fields">
+				<input
+					type="text"
+					onChange={(e) => setFirstName(e.target.value)}
+					placeholder="First Name"
+				/>
+				<input
+					type="text"
+					onChange={(e) => setLastName(e.target.value)}
+					placeholder="Last Name"
+				/>
+			</div>
 			<input
 				type="text"
 				onChange={(e) => setEmail(e.target.value)}

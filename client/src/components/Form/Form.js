@@ -2,6 +2,7 @@ import React from "react";
 import "./Form.css";
 
 const Form = (props) => {
+
 	return (
 		<div className={`form ${props.formClass}`}>
 			<h1>{props.title}</h1>
@@ -11,7 +12,11 @@ const Form = (props) => {
 				onClick={props.closeForm}
 				value="X"
 			/>
-			{props.children}
+
+			{
+				props.successful ? <p>Successful</p>
+					: props.children
+			}
 			
 			<input className="submit-button" type="button" onClick={props.submitForm}  value={props.title} />
 			

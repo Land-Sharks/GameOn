@@ -1,0 +1,14 @@
+.post-form {
+    position: absolute;
+    justify-self: center;
+    left: 40%;
+    height: 22em;
+    grid-template-rows: 4em 16em 0em 0em 0em 2em;
+}
+
+textarea {
+    color: white;
+    height: 13em;
+    background: transparent;
+    resize: false;
+}
