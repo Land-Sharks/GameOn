@@ -6,13 +6,13 @@ const db = require("../models");
 const { Game, Genre, User } = db;
 
 // Create custom queries
-const createQuery = async (query) => {
+const createQuery = (query) => {
 	const obj = {
 		order: [],
-		include: {
+		include: [{
 			model: Genre,
 			through: { attributes: ['genreId'] },
-		}
+		}]
 	}
 
 	let order;
@@ -35,11 +35,12 @@ const createQuery = async (query) => {
 // Returns a list of all games
 router.get("/", async (req, res) => {
 	const genre = req.query.genre;
-	
+	console.log(req.query)
 	try {
 
-		const obj = await createQuery(req.query);
-
+		const obj = createQuery(req.query);
+		
+		console.log(obj);
 		const games = await Game.findAll(obj);
 		res.status(200).json(games);
 	} catch {
@@ -50,22 +51,34 @@ router.get("/", async (req, res) => {
 router.get("/:username", async (req, res) => {
 	try {
 		const username = req.params.username;
-		const games = await Game.findAll({
-			limit: 30, 
-			order: [["name", "ASC"]],
-			include: [{
-				model: Genre, 
-				through: { attribute: [] },
-			}, {
-				model: User,
-				where: {
-					username: username,
-				},
-				attributes: ['username'], 
-				through: { attributes: [] },
-				required: false
-			}]
+		const obj = createQuery(req.query);
+		obj['include'].push({
+			model: User, 
+			where: {
+				username: username
+			},
+			attributes: ['username'],
+			through: { attributes: [] },
+			required: false,
 		})
+
+		const games = await Game.findAll(obj);
+		// const games = await Game.findAll({
+		// 	limit: 30, 
+		// 	order: [["name", "ASC"]],
+		// 	include: [{
+		// 		model: Genre, 
+		// 		through: { attribute: [] },
+		// 	}, {
+		// 		model: User,
+		// 		where: {
+		// 			username: username,
+		// 		},
+		// 		attributes: ['username'], 
+		// 		through: { attributes: [] },
+		// 		required: false
+		// 	}]
+		// })
 
 		res.status(200).json(games);
 	} catch {
