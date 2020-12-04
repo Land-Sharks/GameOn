@@ -1,0 +1,7 @@
+.user-recommendations {
+    position: absolute;
+    right: 1em;
+    top: 30%;
+    text-align: center;
+    border: 1px solid;
+}

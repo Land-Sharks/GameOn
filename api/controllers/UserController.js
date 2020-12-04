@@ -128,6 +128,7 @@ router.get('/:username/followers', async (req, res) => {
 router.post('/follow', async (req, res) => {
     
     try {
+        console.log(req.body)
         const follower = await User.findOne({
             where: { username: req.body.follower }
         })
@@ -154,5 +155,53 @@ router.get('/check', async (req, res) => {
         res.status(404).json('Not authenticated');
     } 
 })
+
+router.post('/recommendUsers', async (req, res) => {
+    const username = req.body.username;
+
+    try {
+
+        const users = await User.findAll({
+            attributes: ['username']
+        })
+
+        const data = await Promise.all(users.map(async (user) => {
+            const games = await findCommonGames(username, user.username);
+            const result = {
+                username: user.username, 
+                games: games,
+                common: games.length
+            }
+            if (games.length < 1) return null;  
+            return result;
+        }))
+
+        const recommend = await (data.filter((user) => user != null)); 
+
+        // const result = await findCommonGames(username, 'sharwit')
+        // console.log(username);
+        res.status(200).json(recommend);
+    } catch (e) {
+        res.status(404).json(e);
+    }
+});
+
+const findCommonGames = async (user1, user2) => {
+    console.log(user2)
+    const result = await Game.findAll({
+        include: {
+            model: User,
+            where: {
+                username: [user1, user2]
+            },
+            attributes: ['username'],
+            through: {
+                attributes: []
+            }
+        }
+    }).filter(game => game.users.length > 1);
+
+    return result;
+}
 
 module.exports = router;
