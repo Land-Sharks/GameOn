@@ -1,8 +1,9 @@
 .game-card {
-    display: flex;
+    margin: 2em;
+    /* display: flex;
     flex-direction: column;
-    text-align: center;
-    border: 1px solid;
+    text-align: center; */
+    /* border: 1px solid; */
 }
 
 .game-card > h1{
@@ -20,5 +21,16 @@
 
 .game-image {
     width: 276px;
-    height: 368px;
+    height: 276px;
+    border-radius: 100%;
+    transform: all 0.5s ease;
+}
+
+.following {
+    border: 5px solid green;
+}
+
+.not-following {
+    border: 5px solid red;
+
 }
