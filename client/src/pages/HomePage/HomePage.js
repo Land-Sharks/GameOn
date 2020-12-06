@@ -19,8 +19,8 @@ const HomePage = (props) => {
 			{
 				posting ? <PostForm toggleForm={toggleForm}/> : <div />
 			}
-			<UserRecommendation />
 			<PostContainer />
+			<UserRecommendation />
 		</div>
 	);
 };

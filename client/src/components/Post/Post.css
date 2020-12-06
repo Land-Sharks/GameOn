@@ -1,9 +1,11 @@
 .post {
     display: block;
     text-align: center;
-    border-style: solid;
+    /* border-style: solid; */
+    border-radius: 5%;
+    padding: 2%;
     margin: 2%;
-    background-color: rgba(124, 124, 124, 0.281);
+    background-color: #1E2238;
 }
 
 .post > input {
@@ -14,3 +16,4 @@
 .poster-name {
     font-weight: bold;
 }
+

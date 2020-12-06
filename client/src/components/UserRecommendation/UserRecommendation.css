@@ -1,7 +1,36 @@
+@font-face {
+    font-family: 'Racing Sans One';
+    src: url(../../fonts/RacingSansOne-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
 .user-recommendations {
     position: absolute;
-    right: 1em;
-    top: 30%;
-    text-align: center;
-    border: 1px solid;
+    top: 23.5em;
+    float: left;
+    padding: 2%;
+    /* border: 1px solid; */
+    border-radius: 5%;
+    background-color: #1E2238;
+}
+
+.user-recommendations h1 {
+    font-family: Racing Sans One;
+}
+
+.user-recommendations p {
+    display: inline-block;
+}
+
+.user-recommendations input[type="button"] {
+    float: right;
+    height: 90%;
+    border-radius: 15px;
+    padding: 5px 25px 5px 25px;
+    background-color: #70F1A3;
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+
 }
