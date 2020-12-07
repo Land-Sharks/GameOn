@@ -21,8 +21,8 @@ const Post = (props) => {
 			<h3 className="poster-name">{props.post.username}</h3>
 			<p>{props.post.text}</p>
 			<p>{props.post.updatedAt}</p>
-			<input type="text" placeholder="Comment" />
-			<input type="button" value="Submit" />
+			{/* <input type="text" placeholder="Comment" /> */}
+			{/* <input type="button" value="Submit" /> */}
 			{/* {comments.map((c) => {
 				return <Comment name={c.name} body={c.body} time={c.time} />;
 			})} */}
