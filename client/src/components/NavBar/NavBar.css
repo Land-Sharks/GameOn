@@ -14,10 +14,12 @@ nav {
 }
 
 .logo {
-    height: 45px;
+    font-size: 3em;
     display: inline-flex;
-    margin-bottom: 5px;
-    background-color: rgba(235, 87, 50, 0.747);
+    margin-left: 0.5em;
+    /* margin-bottom: 5px; */
+    color: rgba(235, 87, 50, 0.747);
+    /* background-color: rgba(235, 87, 50, 0.747); */
     
 }
 

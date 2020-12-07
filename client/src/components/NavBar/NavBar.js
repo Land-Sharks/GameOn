@@ -23,7 +23,8 @@ const NavBar = (props) => {
 	return (
 		<nav>
 			<div class="head">
-				<img className="logo" src="/assets/images/logo.svg" alt="" />
+				{/* <img className="logo" src="/assets/images/logo.svg" alt="" /> */}
+				<i class="fab fa-gg logo"></i>
 				<a href="/">GameOn</a>
 			</div>
 			{auth.isAuthenticated ? (
