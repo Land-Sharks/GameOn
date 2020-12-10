@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const path = require("path");
 const db = require("./models");
 const passport = require("./middlewares/authentication");
+const socket = require("socket.io")
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -44,4 +45,18 @@ if (process.env.NODE_ENV === "production") {
 db.sequelize.sync({ force: false });
 
 // start up the server
-app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+const server = app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+//Add server to socket to allow instant messaging
+const io = socket(server)
+
+io.sockets.on("connection", socket => {
+    console.log(socket.id)
+    socket.on("send-chat-message", (data) => {
+        socket.broadcast.emit("chat-message", data)
+    })
+
+    socket.on("disconnect", (data) => {
+
+	})
+})
