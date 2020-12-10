@@ -1,5 +1,6 @@
 # GameOn
 
+## What is GameOn?
 GameOn is a web application that is intended to be used by gamers- whether
 they play casually, endlessly, or anywhere in between. The purpose for this website is
 to be able to connect with other gamers to make friends and communities within the
