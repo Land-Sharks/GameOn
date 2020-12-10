@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const passport = require('../middlewares/authentication');
-const { User, Game, Post, UserFollowers } = db;
+const { User, Game, Post, Genre, UserFollowers } = db;
+
 
 // Returns a list of all users
 router.get('/', async (req, res) => {
@@ -46,13 +47,20 @@ router.get('/:username/games', async (req, res) => {
     const username = req.params.username;
 
     const result = await Game.findAll({
-        include: {
+        include: [{
             model: User,
             where: {
                 username: username
             },
             attributes: []
+        },
+
+        {
+            model: Genre, 
+
         }
+    ]
+
     })
     console.log(username);
     res.status(200).json(result);

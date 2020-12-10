@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Racing Sans One';
+    src: url(../../fonts/RacingSansOne-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
 .game-overlay {
     
     background-color: #485461;
@@ -7,19 +14,36 @@
     opacity: 0;
     border: 2px solid #5b7188;
     padding: 2%;
+    z-index: -1;
     
 }
 
 
 .game-overlay > h1 {
+    font-family: Roboto;
+    text-transform: uppercase;
     font-weight: medium;
-    color: aliceblue;
     text-align: center;
 }
 
-.genre {
+.game-overlay > hr {
+    background-color: white;
 }
+
+.game-overlay > h3 {
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    font-size: 20px;
+}
+
+
+.genre > p {
+    font-size: 25px;
+    
+}
+
 
 .game-image:hover + .game-overlay {
     opacity: 1;
+    z-index: 1;
 }

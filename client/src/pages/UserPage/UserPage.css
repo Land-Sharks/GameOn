@@ -1,8 +1,76 @@
+@font-face {
+    font-family: 'Racing Sans One';
+    src: url(../../fonts/RacingSansOne-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
 body {
     background-color: #0F0E1C;
 }
 
-.user-games {
+.user-page-container {
     width: 100%;
-    justify-content: center;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 500px;
+    grid-template-columns: 0.25fr 1fr;
+    grid-gap: 5rem;
 }
+
+
+/* #heading {
+    align-items: center;
+    text-align: center;
+    font-family: 'Racing Sans One';
+    font-size: 3em;
+    white-space: pre-line;
+} */
+
+.user-info-container {
+    grid-row: 1/3;
+    background-color: #1E2238;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 50px;
+    border-style: solid;
+    border-color: black;
+    justify-content: center;
+    /* justify-content: space-around; */
+}
+
+.user-follows {
+    text-align: center;
+    margin: 10px;
+    /* border-style: solid; */
+}
+
+.user-follows > h1{
+    font-family: 'Racing Sans One';
+    font-size: 40px;
+}
+
+
+.user-follows > h2{
+   font-family: 'Roboto';
+   font-size: 30px;
+}
+
+
+.user-games {
+    grid-row: 1/3;
+    grid-column: 2/3; 
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    background: #1E2238;
+    border-style: solid;
+    border-color: black;
+    padding: 2%;
+}
+
+.user-games >* > .game-image {
+    width: 130px;
+    height: 130px;
+}
+

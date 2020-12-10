@@ -45,8 +45,7 @@ const Game = (props) => {
 	};
 
 	return (
-        <div className="game-card" 
-            >
+        <div className="game-card" >
 			<img
 				className={`game-image ${
                     isFollowing ? "following" : "not-following"
