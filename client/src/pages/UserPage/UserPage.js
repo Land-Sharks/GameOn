@@ -63,6 +63,7 @@ const UserPage = (props) => {
                     {/* User Followers */}
                     <div className="user-follows">
                         <h1>Followers</h1>
+                        <hr></hr>
                         {
                             followers.map((e) => {
                                 return <h2>{e.username}</h2>
@@ -73,6 +74,7 @@ const UserPage = (props) => {
                     {/* User Following */}
                     <div className="user-follows">
                         <h1>Following</h1>
+                        <hr></hr>
                         {
                             followings.map((e) => {
                                 return <h2>{e.username}</h2>
