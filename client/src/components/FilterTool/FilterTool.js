@@ -39,7 +39,7 @@ const FilterTool = (props) => {
     return (
         <div className="filter-tool">
             <select onChange={(e) => addGenre(e)} id="genre">
-                <option>All</option>
+                <option>Category</option>
                 {
                     genres.map((g) => {
                         return <option>{g.name}</option>
