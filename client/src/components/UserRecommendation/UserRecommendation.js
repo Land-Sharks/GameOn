@@ -50,6 +50,7 @@ const UserRecommendation = (props) => {
     return (
         <div className="user-recommendations">
             <h1>Recommended Users</h1>
+            <hr></hr>
             {
                 users.map(user => {
                     return <div>

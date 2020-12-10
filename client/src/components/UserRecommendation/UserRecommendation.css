@@ -34,3 +34,9 @@
     font-weight: bold;
     outline: none;
 }
+
+.user-recommendations > hr {
+    background-color: #ff6249;
+    height: 2px;
+    width: 20em;
+}
