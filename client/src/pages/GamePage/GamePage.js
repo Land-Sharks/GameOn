@@ -36,8 +36,9 @@ const GamePage = (props) => {
     return (
         <div>
             <NavBar />
+            <h1 id="tagline">Find and follow your favorite games </h1>
             <FilterTool addQuery={addQuery}/>
-            {/* <h1>GamePage</h1> */}
+            
             <div className="games-container">
                 {
                     games.map((e) => {
