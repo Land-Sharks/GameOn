@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import auth from '../../services/auth';
 import './UserRecommendation.css'
 
-const UserRecommendation = () => {
+const UserRecommendation = (props) => {
 
     const [ users, setUsers ] = useState([]);
+
+    const [isFollowing, setIsFollowing] = useState(props.following);
 
     const getRecommendations = async () => {
         const response = await fetch('/api/users/recommendUsers', {
@@ -33,6 +35,12 @@ const UserRecommendation = () => {
                 user: auth.user.username
             })
         });
+        
+        if (!response.ok) {
+			console.log(await response.json());
+		}
+
+		setIsFollowing(!isFollowing);
     }
 
     useState( () => {
@@ -47,7 +55,7 @@ const UserRecommendation = () => {
                     return <div>
                         <h3>{user.username}</h3>
                         <p>Games in common: {user.common}</p>
-                        <input type="button" onClick={(val) => followUser(user.username)} value="follow"/>
+                        <input type="button" onClick={() => followUser(user.username)} value={`${isFollowing ? "Follow" : "Unfollow"}`}/>
                     </div>
                 })
             }

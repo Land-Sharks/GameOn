@@ -32,5 +32,9 @@
     text-transform: uppercase;
     color: black;
     font-weight: bold;
+    outline: none;
+}
 
+.unfollow {
+    background-color: red;
 }
