@@ -54,6 +54,11 @@ nav > input[type="button"] {
     text-transform: uppercase;
     color: white;
     font-weight: bold;
+    outline: none;
+}
+
+nav > input[type="button"]:hover {
+   box-shadow: 0px 5px 5px rgb(71, 191, 238);
 }
 
 nav > input[type="text"] {
